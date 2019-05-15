@@ -48,7 +48,7 @@ namespace ShopASP.Models.Repository
                 foreach (Order.OrderLine lines in order.OrderLines) {
                     if (lines != tempLines[counter])
                     {
-                        db.ExecuteNonQuery(ref stp, "UPDATE `cake`.`orderlines` SET `Quantity` = '"+ lines.Quantity.ToString() +"', `Cake_CakeId` = '"+ lines.Cake.CakeId.ToString() +"', `Order_OrderId` = '" + lines.Order.OrderId.ToString() + "' WHERE (`OrderLineId` = '" + lines.OrderLineId.ToString() +"');");
+                        db.ExecuteNonQuery(ref stp, "UPDATE `cake`.`orderlines` SET `Quantity` = '"+ lines.Quantity.ToString() +"', `Cake_CakeId` = '"+ lines.Cake.CakeId.ToString() +"', `Order_OrderId` = '" + lines.Order.ToString() + "' WHERE (`OrderLineId` = '" + lines.OrderLineId.ToString() +"');");
 
                         counter++;
                     }
@@ -61,25 +61,25 @@ namespace ShopASP.Models.Repository
             else
             {
                 List<Order.OrderLine> orderLines = new List<Order.OrderLine>();
-                Orders.Clear();
 
 
                 db.Execute<Order.OrderLine>(ref stp, "SELECT * FROM cake.orderlines;", ref orderLines);
 
 
-                int linesCount = (orderLines.Count() > 0) ? orderLines[orderLines.Count() - 1].OrderLineId + 1 : 0;
-                int orderCounter = (Orders.Count() > 0) ? Orders[Orders.Count() - 1].OrderId + 1 : 0;
+                int linesCount = (orderLines.Count() > 0) ? orderLines[orderLines.Count() - 1].OrderLineId + 1 : 1;
+                int orderCounter = (Orders.Count() > 0) ? Orders[Orders.Count() - 1].OrderId + 1 : 1;
                 int temp = (order.isCash == true) ? 1 : 0;
-
-                foreach (Order.OrderLine line in order.OrderLines)
-                {
-                    db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`orderlines` (`OrderLineId`, `Quantity`, `Cake_CakeId`, `Order_OrderId`) VALUES ('" + linesCount.ToString() + "', '" + line.Quantity.ToString() + "', '" + line.Cake.CakeId.ToString() + "', '" + line.Order.OrderId.ToString() + "');");
-
-                    linesCount++;
-                }
 
                 db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`orders` (`OrderID`, `Name`, `Line1`, `Line2`, `Line3`, `City`, `isCash`, `Status`) VALUES ('" + orderCounter.ToString() + "', '" + order.Name.ToString() + "', '" + order.Line1.ToString() + "', '" + order.Line2.ToString() + "', '" + order.Line3.ToString() + "', '" + order.City.ToString() + "', '" + temp.ToString() + "', 'В обработке');");
 
+                foreach (Order.OrderLine line in order.OrderLines)
+                {
+                    db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`orderlines` (`OrderLineId`, `Quantity`, `Cake_CakeId`, `Order_OrderId`) VALUES ('" + linesCount.ToString() + "', '" + line.Quantity.ToString() + "', '" + line.Cake.CakeId.ToString() + "', '" + orderCounter.ToString() + "');");
+                    db.ExecuteNonQuery(ref stp, "UPDATE `cake`.`cakes` SET `Quantity` = '"+ (line.Cake.Quantity - line.Quantity).ToString() +"' WHERE (`CakeId` = '"+ line.Cake.CakeId.ToString() +"');");
+                    linesCount++;
+                }
+
+                            
             }
         }
     }

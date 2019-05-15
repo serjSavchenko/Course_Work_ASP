@@ -70,7 +70,16 @@ namespace ShopASP.Models
             public int OrderLineId { get; set; }
             public int Quantity { get; set; }
             public Cake Cake { get; set; }
-            public Order Order { get; set; }
+            public int Order { get; set; }
+
+            public OrderLine(int quantity, Cake cake, int orderID)
+            {
+                OrderLineId = 0;
+                Quantity = quantity;
+                Cake = cake;
+                Order = orderID;
+            }
+
             public OrderLine(string info)
             {
                 if (info != null && info != "")
@@ -99,19 +108,7 @@ namespace ShopASP.Models
 
                     //------------------------------------
 
-                    List<Order> tempOrders = new List<Order>();
-                    tempOrders.Clear();
-
-                    db.Execute<Order>(ref stp, "SELECT * FROM cake.orders where OrderID = " + val[3] + ";", ref tempOrders);
-
-                    if (tempOrders.Count > 0)
-                    {
-                        Order = tempOrders[0];
-                    }
-                    else
-                    {
-                        Order = new Order();
-                    }
+                    Order = Convert.ToInt32(val[3]);
                 }
             }
 

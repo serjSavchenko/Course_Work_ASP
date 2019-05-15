@@ -26,6 +26,9 @@ namespace ShopASP
 
             //Route for cart
             routes.MapPageRoute("cart", "cart", "~/Pages/CartView.aspx");
+
+            //Route for order
+            routes.MapPageRoute("checkout", "checkout", "~/Pages/Checkout.aspx");
         }
     }
 }

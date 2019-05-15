@@ -31,7 +31,7 @@ namespace ShopASP.Models
                 }
                 else
                 {
-                    HttpContext.Current.Response.Write("<SCRIPT>alert('На складе только " + line.Quantity.ToString() + " позиций " + line.Cake.Name.ToString() + "')</SCRIPT>");
+                    HttpContext.Current.Response.Write("<script>alert('На складе только " + line.Quantity.ToString() + " позиций " + line.Cake.Name.ToString() + "')</script>");
                 }
             }
         }
@@ -47,7 +47,8 @@ namespace ShopASP.Models
             }
             else
             {
-                RemoveLine(cake);
+                HttpContext.Current.Response.Write("<script>alert('Количество товаров не должно быть меньше одного! Для удаления позиции нажмите клавишу справа.')</script>");
+                //RemoveLine(cake);
             }
         }
 
