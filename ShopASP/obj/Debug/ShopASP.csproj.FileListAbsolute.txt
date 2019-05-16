@@ -110,3 +110,11 @@ C:\Users\w1ldc\source\repos\ShopASP\obj\Debug\ShopASP.csproj.CoreCompileInputs.c
 C:\Users\w1ldc\source\repos\ShopASP\obj\Debug\ShopASP.csproj.CopyComplete
 C:\Users\w1ldc\source\repos\ShopASP\obj\Debug\ShopASP.dll
 C:\Users\w1ldc\source\repos\ShopASP\obj\Debug\ShopASP.pdb
+C:\Users\w1ldc\source\repos\ShopASP\bin\Antlr3.Runtime.dll
+C:\Users\w1ldc\source\repos\ShopASP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\w1ldc\source\repos\ShopASP\bin\Newtonsoft.Json.dll
+C:\Users\w1ldc\source\repos\ShopASP\bin\System.Web.Optimization.dll
+C:\Users\w1ldc\source\repos\ShopASP\bin\WebGrease.dll
+C:\Users\w1ldc\source\repos\ShopASP\bin\Antlr3.Runtime.pdb
+C:\Users\w1ldc\source\repos\ShopASP\bin\Newtonsoft.Json.xml
+C:\Users\w1ldc\source\repos\ShopASP\bin\System.Web.Optimization.xml

@@ -66,7 +66,8 @@ namespace ShopASP.Pages
         {
             get
             {
-                return SessionHelper.Get<string>(Session, SessionKey.RETURN_URL);
+                return RouteTable.Routes.GetVirtualPath(null, "list",
+                     null).VirtualPath;
             }
         }
 
@@ -74,8 +75,18 @@ namespace ShopASP.Pages
         {
             get
             {
-                return RouteTable.Routes.GetVirtualPath(null, "checkout",
-                    null).VirtualPath;
+                List<CartLine> temp = (List<CartLine>)GetCartLines();
+                if (temp.Count != 0)
+                {
+                    return RouteTable.Routes.GetVirtualPath(null, "checkout",
+                        null).VirtualPath;
+                }
+                else
+                {
+                    //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Нет ни одной покупки!');", true);
+                    return RouteTable.Routes.GetVirtualPath(null, "cart",
+                        null).VirtualPath;
+                }
             }
         }
     }

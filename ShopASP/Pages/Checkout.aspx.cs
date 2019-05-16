@@ -24,26 +24,33 @@ namespace ShopASP.Pages
                 if (TryUpdateModel(myOrder,
                    new FormValueProvider(ModelBindingExecutionContext)))
                 {
-                    myOrder.Name = Name.Value;
-                    myOrder.Line1 = Line1.Value;
-                    myOrder.Line2 = Line2.Value;
-                    myOrder.Line3 = Line3.Value;
-                    myOrder.City = City.Value;
-
-                    myOrder.OrderLines = new List<Order.OrderLine>();
-
-                    Cart myCart = SessionHelper.GetCart(Session);
-
-                    foreach (CartLine line in myCart.Lines)
+                    if (Name.Value.ToString().Trim() != "" && Line1.Value.ToString().Trim() != "" && Line2.Value.ToString().Trim() != "" && Line3.Value.ToString().Trim() != "" && City.Value.ToString().Trim() != "")
                     {
-                        myOrder.OrderLines.Add(new Order.OrderLine(line.Quantity, line.Cake, myOrder.OrderId));
+                        myOrder.Name = Name.Value;
+                        myOrder.Line1 = Line1.Value;
+                        myOrder.Line2 = Line2.Value;
+                        myOrder.Line3 = Line3.Value;
+                        myOrder.City = City.Value;
+
+                        myOrder.OrderLines = new List<Order.OrderLine>();
+
+                        Cart myCart = SessionHelper.GetCart(Session);
+
+                        foreach (CartLine line in myCart.Lines)
+                        {
+                            myOrder.OrderLines.Add(new Order.OrderLine(line.Quantity, line.Cake, myOrder.OrderId));
+                        }
+
+                        new Repository().SaveOrder(myOrder);
+                        myCart.Clear();
+
+                        checkoutForm.Visible = false;
+                        checkoutMessage.Visible = true;
                     }
-
-                    new Repository().SaveOrder(myOrder);
-                    myCart.Clear();
-
-                    checkoutForm.Visible = false;
-                    checkoutMessage.Visible = true;
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Один из полей заполнен не верно, либо пробелами!');", true);
+                    }
                 }
             }
         }

@@ -18,25 +18,25 @@
             <h3>Заказчик</h3>
             <div>
                 <label for="Name">Имя:</label>
-                <input id="Name" name="Name" runat="server" />
+                <input id="Name" name="Name" data-val="true" data-val-required="Введите имя!" runat="server" />
             </div>
 
             <h3>Адрес доставки</h3>
             <div>
-                <label for="Line1">Адрес 1:</label>
-                <input id="Line1" name="Line1" runat="server" />
+                <label for="Line1">Улица:</label>
+                <input id="Line1" name="Line1" data-val="true" data-val-required="Введите улицу доставки!" runat="server" />
             </div>
             <div>
-                <label for="Line2">Адрес 2:</label>
-                <input id="Line2" name="Line2" runat="server" />
+                <label for="Line2">Номер дома:</label>
+                <input id="Line2" name="Line2" data-val="true" data-val-required="Введите номер дома доставки!" runat="server" />
             </div>
             <div>
-                <label for="Line3">Адрес 3:</label>
-                <input id="Line3" name="Line3" runat="server" />
+                <label for="Line3">Квартира:</label>
+                <input id="Line3" name="Line3" data-val="true" data-val-required="Введите квартиру доставки!" runat="server" />
             </div>
             <div>
                 <label for="City">Город:</label>
-                <input id="City" name="City" runat="server" />
+                <input id="City" name="City" data-val="true" data-val-required="Введите город доставки!" runat="server" />
             </div>
 
             <h3>Детали заказа</h3>
