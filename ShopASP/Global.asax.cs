@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.Optimization;
 
 namespace ShopASP
 {
@@ -13,6 +14,7 @@ namespace ShopASP
         protected void Application_Start(object sender, EventArgs e)
         {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            App_Start.BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Session_Start(object sender, EventArgs e)
