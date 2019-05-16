@@ -21,7 +21,7 @@ namespace ShopASP
 
             //Main Route on Product list
             routes.MapPageRoute(null, "", "~/Pages/Listing.aspx");
-            routes.MapPageRoute(null, "list", "~/Pages/Listing.aspx");
+            routes.MapPageRoute("list", "list", "~/Pages/Listing.aspx");
 
 
             //Route for cart
