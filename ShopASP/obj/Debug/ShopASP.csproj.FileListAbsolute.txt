@@ -49,7 +49,6 @@ D:\repos\ShopASP\bin\roslyn\VBCSCompiler.exe
 D:\repos\ShopASP\bin\roslyn\VBCSCompiler.exe.config
 D:\repos\ShopASP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\repos\ShopASP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\repos\ShopASP\obj\Debug\ShopASP.csprojAssemblyReference.cache
 D:\repos\ShopASP\obj\Debug\ShopASP.csproj.CoreCompileInputs.cache
 D:\repos\ShopASP\obj\Debug\ShopASP.csproj.CopyComplete
 D:\repos\ShopASP\obj\Debug\ShopASP.dll
@@ -118,3 +117,12 @@ C:\Users\w1ldc\source\repos\ShopASP\bin\WebGrease.dll
 C:\Users\w1ldc\source\repos\ShopASP\bin\Antlr3.Runtime.pdb
 C:\Users\w1ldc\source\repos\ShopASP\bin\Newtonsoft.Json.xml
 C:\Users\w1ldc\source\repos\ShopASP\bin\System.Web.Optimization.xml
+D:\repos\ShopASP\bin\Antlr3.Runtime.dll
+D:\repos\ShopASP\bin\Microsoft.Web.Infrastructure.dll
+D:\repos\ShopASP\bin\Newtonsoft.Json.dll
+D:\repos\ShopASP\bin\System.Web.Optimization.dll
+D:\repos\ShopASP\bin\WebGrease.dll
+D:\repos\ShopASP\bin\Antlr3.Runtime.pdb
+D:\repos\ShopASP\bin\Newtonsoft.Json.xml
+D:\repos\ShopASP\bin\System.Web.Optimization.xml
+D:\repos\ShopASP\obj\Debug\ShopASP.csprojAssemblyReference.cache

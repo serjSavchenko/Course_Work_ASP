@@ -10,6 +10,7 @@ namespace ShopASP.Pages.Helpers
     public enum SessionKey
     {
         CART,
+        USER,
         RETURN_URL
     }
 
@@ -43,6 +44,17 @@ namespace ShopASP.Pages.Helpers
                 Set(session, SessionKey.CART, myCart);
             }
             return myCart;
+        }
+
+        public static User GetUser(HttpSessionState session)
+        {
+            User myUser = Get<User>(session, SessionKey.USER);
+            if (myUser == null)
+            {
+                myUser = new User();
+                Set(session, SessionKey.USER, myUser);
+            }
+            return myUser;
         }
     }
 }

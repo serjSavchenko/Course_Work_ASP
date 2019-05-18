@@ -94,11 +94,13 @@
     <Content Include="Content\styles.css" />
     <Content Include="Controls\CartSummary.ascx" />
     <Content Include="Controls\CategoryList.ascx" />
+    <Content Include="Controls\LoginUser.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Pages\CartView.aspx" />
     <Content Include="Pages\Checkout.aspx" />
     <Content Include="Pages\Listing.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Pages\Login.aspx" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -129,6 +131,13 @@
     <Compile Include="Controls\CategoryList.ascx.designer.cs">
       <DependentUpon>CategoryList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LoginUser.ascx.cs">
+      <DependentUpon>LoginUser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginUser.ascx.designer.cs">
+      <DependentUpon>LoginUser.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\VInput.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -140,6 +149,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Repository\EFDbContext.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Pages\Cakes.Master.cs">
       <DependentUpon>Cakes.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,6 +178,13 @@
     </Compile>
     <Compile Include="Pages\Listing.aspx.designer.cs">
       <DependentUpon>Listing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

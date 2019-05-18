@@ -6,7 +6,8 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CakesStore</title>
-    <link rel="stylesheet" href="/Content/styles.css" />
+    <link rel="stylesheet" href="~/Content/styles.css" />
+    <link rel="stylesheet" href="~/Content/styles.min.css" />
     <%: System.Web.Optimization.Scripts.Render("~/bundles/validation") %>
 </head>
 <body>
@@ -14,6 +15,7 @@
     <div>
         <div id="header">
             <CS:CartSummary runat="server" />
+            <CS:LoginUser runat="server" />
             <div class="title">CakeStore - интернет магазин кондитерских товаров</div>
         </div>
         <div id="categories">
