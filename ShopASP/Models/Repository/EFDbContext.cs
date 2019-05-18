@@ -12,6 +12,7 @@ namespace ShopASP.Models.Repository
         public ClassSetupProgram stp = new ClassSetupProgram();
         public List<Cake> Cakes = new List<Cake>();
         public List<Order> Orders = new List<Order>();
+        public List<User.UserList> UserList = new List<User.UserList>();
 
         public List<Cake> getCakes() {
 
@@ -20,7 +21,15 @@ namespace ShopASP.Models.Repository
             db.Execute<Cake>(ref stp, "SELECT * FROM `cake`.`cakes` where Quantity > 0;", ref Cakes);
 
             return Cakes;
+        }
 
+        public List<User.UserList> getUsers() {
+
+            UserList.Clear();
+
+            db.Execute<User.UserList>(ref stp, "SELECT * FROM cake.users;", ref UserList);
+
+            return UserList;
         }
 
 

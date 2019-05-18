@@ -22,6 +22,14 @@ namespace ShopASP.Models.Repository
             }
         }
 
+        public IEnumerable<User.UserList> Users
+        {
+            get
+            {
+                return context.getUsers();
+            }
+        }
+
         public void SaveOrder(Order order)
         {
             context.insertOrder(order);

@@ -8,6 +8,9 @@ div#header div.title, div.item h3, div.item h4, div.pager a {
 }
 
 div#header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     background-color: #444;
     border-bottom: 2px solid #111;
     color: white;
@@ -164,6 +167,10 @@ p.actionButtons {
 
 div#cartSummary {
     float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin: .8em;
     color: Silver;
     background-color: #555;
@@ -180,6 +187,27 @@ div#cartSummary {
         border: 1px solid black;
     }
 
+div#LoginUser {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: .8em;
+    color: Silver;
+    background-color: #555;
+    padding: .5em .5em .5em 1em;
+    font-size: 25px;
+}
+
+    div#LoginUser a {
+        text-decoration: none;
+        padding: .2em 1em .2em 1em;
+        line-height: 1.3em;
+        background-color: #333;
+        color: White;
+        border: 1px solid black;
+        font-size: 18px;
+    }
+
 .checkout label {
     display: inline-block;
     width: 100px;
@@ -190,6 +218,79 @@ div#cartSummary {
     width: 200px;
     margin: 2px;
 }
+
+.loginContainer {
+    padding: 10px;
+    text-align: center;
+}
+
+    .loginContainer label {
+        display: inline-block;
+        width: 120px;
+        margin: 5px;
+    }
+
+    .loginContainer input {
+        width: 150px;
+        margin: 5px;
+    }
+
+    .loginContainer button {
+        margin-top: 10px;
+    }
+
+div.outerContainer {
+    text-align: center;
+}
+
+table {
+    display: inline-block;
+    text-align: left;
+    margin: 20px 0;
+}
+
+    table th, table td {
+        text-align: left;
+        width: 100px;
+        padding: 0px 10px;
+    }
+
+#ordersTable {
+    counter-reset: schetchik;
+}
+
+    #ordersTable tbody tr {
+        counter-increment: schetchik; 
+    }
+
+        #ordersTable tr:before {
+            content: counter(schetchik);
+            display: table-cell;
+            vertical-align: middle;
+            color: #978777;
+        }
+
+#ordersTable th:nth-last-child(2), #ordersTable td:nth-last-child(2) {
+    text-align: right;
+}
+
+#productsTable td.description span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 150px;
+    display: inline-block;
+}
+
+#productsTable td:last-of-type {
+    width: 210px;
+}
+
+#productsTable input[type=submit] {
+    width: 100px;
+    padding: 8px;
+}
+
 
 #errors {
     color: red;

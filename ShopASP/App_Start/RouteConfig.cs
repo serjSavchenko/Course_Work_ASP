@@ -29,6 +29,9 @@ namespace ShopASP
 
             //Route for order
             routes.MapPageRoute("checkout", "checkout", "~/Pages/Checkout.aspx");
+
+            //Login Route
+            routes.MapPageRoute("login", "login", "~/Pages/Login.aspx");
         }
     }
 }

@@ -7,7 +7,6 @@ namespace ShopASP.Models
 {
     public class Cake
     {
-
         public int CakeId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
