@@ -13,18 +13,27 @@
                 <input type="password" id="Password" name="Password" runat="server" />
             </div>
             <button type="submit">Войти</button>
+            <br />
             <a id="csLinkRegister" runat="server">Регистрация</a>
         </div>
         <div id="PersonalArea" runat="server">
             <div class="outerContainer">
+                <div id="FilterButtons">
+                    <button id="AllOrders" class="actionButtons" onserverclick="AllOrders_ServerClick" runat="server">Все заказы</button>
+                    <button id="NewOrders" class="actionButtons" onserverclick="NewOrders_ServerClick" runat="server">Новые</button>
+                    <button id="DeliverOrders" class="actionButtons" onserverclick="DeliverOrders_ServerClick" runat="server">В доставке</button>
+                    <button id="ReadyOrders" class="actionButtons" onserverclick="ReadyOrders_ServerClick" runat="server">Готовы/Отменены</button>
+                </div>
                 <table id="ordersTable">
-                    <tr>
-                        <th>Имя заказчика</th>
-                        <th>Город</th>
-                        <th>Позиций в заказе</th>
-                        <th>Сумма</th>
-                        <th>Статус</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Имя заказчика</th>
+                            <th>Город</th>
+                            <th>Позиций в заказе</th>
+                            <th>Сумма</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
                     <tbody>
                          <asp:Repeater ID="RepeaterOrders" runat="server" SelectMethod="GetOrders"
                              ItemType="ShopASP.Models.Order">
@@ -40,6 +49,10 @@
                          </asp:Repeater>
                     </tbody>
                 </table>
+                <h3 id="ClearTable" runat="server">Здесь пока-что пусто</h3>
+                <p class="actionButtons">
+                    <a href="<%= ReturnUrl %>">Продолжить покупки</a>
+                </p>
             </div>
         </div>
     </div>

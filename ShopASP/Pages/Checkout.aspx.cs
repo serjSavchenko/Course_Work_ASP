@@ -17,6 +17,9 @@ namespace ShopASP.Pages
         {
             checkoutForm.Visible = true;
             checkoutMessage.Visible = false;
+            User myUser = SessionHelper.GetUser(Session);
+            User.UserList temp = new User.UserList();
+            if (myUser.getCurUser.UserID != temp.UserID) { Name.Value = myUser.getCurUser.User_Name.ToString(); Name.Disabled = true; }
 
             if (IsPostBack)
             {

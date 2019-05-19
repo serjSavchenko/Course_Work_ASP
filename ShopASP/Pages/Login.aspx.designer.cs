@@ -58,6 +58,42 @@ namespace ShopASP.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PersonalArea;
         
         /// <summary>
+        /// AllOrders элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton AllOrders;
+        
+        /// <summary>
+        /// NewOrders элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton NewOrders;
+        
+        /// <summary>
+        /// DeliverOrders элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton DeliverOrders;
+        
+        /// <summary>
+        /// ReadyOrders элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton ReadyOrders;
+        
+        /// <summary>
         /// RepeaterOrders элемент управления.
         /// </summary>
         /// <remarks>
@@ -65,5 +101,14 @@ namespace ShopASP.Pages {
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterOrders;
+        
+        /// <summary>
+        /// ClearTable элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ClearTable;
     }
 }
