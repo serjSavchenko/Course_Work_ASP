@@ -32,6 +32,9 @@ namespace ShopASP
 
             //Login Route
             routes.MapPageRoute("login", "login", "~/Pages/Login.aspx");
+
+            //Register Route
+            routes.MapPageRoute("register","register","~/Pages/Register.aspx");
         }
     }
 }

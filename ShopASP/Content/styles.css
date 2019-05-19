@@ -115,7 +115,7 @@ h2 {
 }
 
 #cartTable {
-    width: 90%;
+    width: 90% !important;
 }
 
     #cartTable tfoot td {
@@ -163,6 +163,10 @@ p.actionButtons {
     padding: .15em 1.5em .2em 1.5em;
     background-color: #353535;
     border: 1px solid black;
+}
+
+#ButtonExit {
+    
 }
 
 div#cartSummary {
@@ -243,27 +247,33 @@ div.outerContainer {
     text-align: center;
 }
 
-table {
+
+
+
+#ordersTable {
+    counter-reset: schetchik;
     display: inline-block;
     text-align: left;
     margin: 20px 0;
 }
-
-    table th, table td {
+    #ordersTable th, #ordersTable td {
         text-align: left;
         width: 100px;
         padding: 0px 10px;
     }
 
-#ordersTable {
-    counter-reset: schetchik;
-}
 
     #ordersTable tbody tr {
-        counter-increment: schetchik; 
+        counter-increment: schetchik;
     }
+        #ordersTable thead tr:before {
+            content: '';
+            display: table-cell;
+            vertical-align: middle;
+            color: #978777;
+        }
 
-        #ordersTable tr:before {
+        #ordersTable tbody tr:before {
             content: counter(schetchik);
             display: table-cell;
             vertical-align: middle;

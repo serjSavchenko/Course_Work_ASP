@@ -16,25 +16,33 @@ namespace ShopASP.Controls
         {
             User myUser = SessionHelper.GetUser(Session);
             User.UserList temp = new User.UserList();
-            myUser.Login("Oleg", "12345");
+            csLinkRegister.InnerText = "Регистрация";
+            //myUser.Login("Oleg", "12345");
             if (myUser.getCurUser.UserID != temp.UserID)
             {
                 csLinkLogin.InnerText = myUser.getCurUser.User_Name.ToString();
-                csLinkRegister.InnerText = "Выход";
                 csLinkLogin.HRef = RouteTable.Routes.GetVirtualPath(null, "login",
                 null).VirtualPath;
-                csLinkRegister.HRef = RouteTable.Routes.GetVirtualPath(null, "cart",
-                null).VirtualPath;
+                ButtonExit.Visible = true;
+                csLinkRegister.Visible = false;
             }
             else
             {
+                ButtonExit.Visible = false;
+                csLinkRegister.Visible = true;
                 csLinkLogin.InnerText = "Вход";
-                csLinkRegister.InnerText = "Регистрация";
                 csLinkLogin.HRef = RouteTable.Routes.GetVirtualPath(null, "login",
                 null).VirtualPath;
-                csLinkRegister.HRef = RouteTable.Routes.GetVirtualPath(null, "cart",
+                csLinkRegister.HRef = RouteTable.Routes.GetVirtualPath(null, "register",
                 null).VirtualPath;
             }
+        }
+
+        protected void ButtonExit_ServerClick(object sender, EventArgs e)
+        {
+            User myUser = SessionHelper.GetUser(Session);
+            myUser.OutLogin();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

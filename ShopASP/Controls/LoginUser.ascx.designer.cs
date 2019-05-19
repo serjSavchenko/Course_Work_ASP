@@ -22,6 +22,15 @@ namespace ShopASP.Controls {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor csLinkLogin;
         
         /// <summary>
+        /// ButtonExit элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton ButtonExit;
+        
+        /// <summary>
         /// csLinkRegister элемент управления.
         /// </summary>
         /// <remarks>

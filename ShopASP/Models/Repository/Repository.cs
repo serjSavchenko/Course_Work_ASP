@@ -9,6 +9,17 @@ namespace ShopASP.Models.Repository
     {
         private EFDbContext context = new EFDbContext();
 
+        public string getFlag
+        {
+            get { return context.getFlag(); }
+        }
+
+        public void setFlag(string value)
+        {
+            context.SetFlag(value);
+        }
+
+
         public List<Cake> Cakes
         {
             get { return context.getCakes(); } 
@@ -33,6 +44,11 @@ namespace ShopASP.Models.Repository
         public void SaveOrder(Order order)
         {
             context.insertOrder(order);
+        }
+
+        public void RegisterUser(string Name, string Pass)
+        {
+            context.insertUser(Name, Pass);
         }
     }
 }

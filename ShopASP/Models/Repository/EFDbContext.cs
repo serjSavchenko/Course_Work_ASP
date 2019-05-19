@@ -13,6 +13,19 @@ namespace ShopASP.Models.Repository
         public List<Cake> Cakes = new List<Cake>();
         public List<Order> Orders = new List<Order>();
         public List<User.UserList> UserList = new List<User.UserList>();
+        public List<Flag> FilterFlag = new List<Flag>();
+
+        public string getFlag()
+        {
+            FilterFlag.Clear();
+            db.Execute<Flag>(ref stp, "SELECT * FROM cake.testblob;", ref FilterFlag);
+            return FilterFlag[0].FlagStatus;
+        }
+
+        public void SetFlag(string value)
+        {
+            db.ExecuteNonQuery(ref stp, "UPDATE `cake`.`testblob` SET `Content` = '"+ value +"' WHERE (`ID_Image` = '1');");
+        }
 
         public List<Cake> getCakes() {
 
@@ -30,6 +43,17 @@ namespace ShopASP.Models.Repository
             db.Execute<User.UserList>(ref stp, "SELECT * FROM cake.users;", ref UserList);
 
             return UserList;
+        }
+
+        public void insertUser(string User_Name, string User_Password)
+        {
+            UserList.Clear();
+
+            db.Execute<User.UserList>(ref stp, "SELECT * FROM cake.users;", ref UserList);
+
+            int userCount = (UserList.Count() > 0) ? UserList[UserList.Count() - 1].UserID + 1 : 1;
+
+            db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`users` (`User_ID`, `User_Name`, `User_Password`, `Permission`) VALUES ('"+ userCount.ToString() +"', '"+ User_Name +"', '"+ User_Password +"', 'User');");
         }
 
 
