@@ -45,15 +45,20 @@ namespace ShopASP.Models.Repository
             return UserList;
         }
 
-        public void insertUser(string User_Name, string User_Password)
+        public void insertUser(string User_Name, string User_Password, string User_Phone, string User_EMail)
         {
             UserList.Clear();
 
             db.Execute<User.UserList>(ref stp, "SELECT * FROM cake.users;", ref UserList);
 
             int userCount = (UserList.Count() > 0) ? UserList[UserList.Count() - 1].UserID + 1 : 1;
+            User.UserList temp = UserList.Where(u => u.User_EMail == User_EMail).FirstOrDefault();
 
-            db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`users` (`User_ID`, `User_Name`, `User_Password`, `Permission`) VALUES ('"+ userCount.ToString() +"', '"+ User_Name +"', '"+ User_Password +"', 'User');");
+
+            if (temp == null)
+            {
+                db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`users` (`User_ID`, `User_Name`, `User_Password`, `Permission`, `User_Phone`, `User_EMail`) VALUES ('" + userCount.ToString() + "', '" + User_Name + "', '" + User_Password + "', 'User', '" + User_Phone + "', '" + User_EMail + "');");
+            }
         }
 
 
@@ -113,6 +118,32 @@ namespace ShopASP.Models.Repository
                 }
 
                             
+            }
+        }
+
+        public void saveCake(Cake cake)
+        {
+            Cakes = getCakes();
+            int multiplier = 100;
+            decimal double_value = cake.Price;
+            int double_result = (int)((double_value - (int)double_value) * multiplier);
+            if (Cakes.Exists(c => c.CakeId == cake.CakeId))
+            {
+                db.ExecuteNonQuery(ref stp, "UPDATE `cake`.`cakes` SET `Name` = '" + cake.Name.ToString() + "', `Description` = '" + cake.Description.ToString() + "', `Category` = '" + cake.Category.ToString() + "', `Price` = '" + Math.Truncate(cake.Price).ToString() + '.' + double_result.ToString() + "', `CreateDate` = '" + cake.CreateDate.Year + '-' + cake.CreateDate.Month + '-' + cake.CreateDate.Day + ' ' + cake.CreateDate.ToString("HH:mm:ss") + "', `SpoiledDate` = '" + cake.SpoiledDate.Year + '-' + cake.SpoiledDate.Month + '-' + cake.SpoiledDate.Day + ' ' + cake.SpoiledDate.ToString("HH:mm:ss") + "', `Quantity` = '" + cake.Quantity.ToString() + "' WHERE (`CakeId` = '" + cake.CakeId.ToString() + "');");
+            }
+            else
+            {
+                int cakeCount = (Cakes.Count() > 0) ? Cakes[Cakes.Count() - 1].CakeId + 1 : 1;
+                db.ExecuteNonQuery(ref stp, "INSERT INTO `cake`.`cakes` (`CakeId`, `Name`, `Description`, `Category`, `Price`, `CreateDate`, `SpoiledDate`, `Quantity`) VALUES ('"+ cakeCount.ToString() +"', '"+ cake.Name.ToString() +"', '"+ cake.Description.ToString() +"', '"+ cake.Category.ToString() +"', '"+ Math.Truncate(cake.Price).ToString() + '.' + double_result.ToString() + "', '"+ cake.CreateDate.Year + '-' + cake.CreateDate.Month + '-' + cake.CreateDate.Day + ' ' + cake.CreateDate.ToString("HH:mm:ss") + "', '"+ cake.SpoiledDate.Year + '-' + cake.SpoiledDate.Month + '-' + cake.SpoiledDate.Day + ' ' + cake.SpoiledDate.ToString("HH:mm:ss") + "', '"+ cake.Quantity.ToString() +"');");
+            }
+        }
+
+        public void deleteCake(Cake cake)
+        {
+            Cakes = getCakes();
+            if (Cakes.Exists(c => c.CakeId == cake.CakeId))
+            {
+                db.ExecuteNonQuery(ref stp, "DELETE FROM `cake`.`cakes` WHERE (`CakeId` = '"+ cake.CakeId.ToString() +"');");
             }
         }
     }

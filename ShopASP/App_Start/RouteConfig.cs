@@ -35,6 +35,10 @@ namespace ShopASP
 
             //Register Route
             routes.MapPageRoute("register","register","~/Pages/Register.aspx");
+
+            //Admin Routes
+            routes.MapPageRoute("admin_orders", "admin/orders", "~/Pages/Admin/Orders.aspx");
+            routes.MapPageRoute("admin_cakes", "admin/cakes", "~/Pages/Admin/Cakes.aspx");
         }
     }
 }

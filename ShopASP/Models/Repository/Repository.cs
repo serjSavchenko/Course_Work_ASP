@@ -46,9 +46,19 @@ namespace ShopASP.Models.Repository
             context.insertOrder(order);
         }
 
-        public void RegisterUser(string Name, string Pass)
+        public void RegisterUser(string Name, string Pass, string Phone, string EMail)
         {
-            context.insertUser(Name, Pass);
+            context.insertUser(Name, Pass, Phone, EMail);
+        }
+
+        public void saveCake(Cake cake)
+        {
+            context.saveCake(cake);
+        }
+
+        public void delCake(Cake cake)
+        {
+            context.deleteCake(cake);
         }
     }
 }

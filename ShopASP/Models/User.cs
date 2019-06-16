@@ -54,6 +54,8 @@ namespace ShopASP.Models
             public string User_Name { get; set; }
             private string User_Password { get; set; }
             public string Permission { get; set; }
+            public string User_Phone { get; set; }
+            public string User_EMail { get; set; }
 
             public UserList()
             {
@@ -61,6 +63,8 @@ namespace ShopASP.Models
                 User_Name = "";
                 User_Password = "";
                 Permission = "";
+                User_Phone = "";
+                User_EMail = "";
             }
 
             public UserList(string info)
@@ -72,6 +76,8 @@ namespace ShopASP.Models
                     User_Name = val[1];
                     User_Password = val[2];
                     Permission = val[3];
+                    User_Phone = (val[4].Trim() != "" && val[4].Trim() != null) ? val[4].Trim() : "";
+                    User_EMail = (val[5].Trim() != "" && val[5].Trim() != null) ? val[5].Trim() : "";
                 }
             }
 

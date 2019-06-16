@@ -23,7 +23,7 @@ namespace ShopASP.Models
             Category = "";
             Price = 0;
             CreateDate = DateTime.Now;
-            SpoiledDate = DateTime.Now;
+            SpoiledDate = DateTime.Now.AddDays(1);
             Quantity = 0;
         }
         public Cake(string info)

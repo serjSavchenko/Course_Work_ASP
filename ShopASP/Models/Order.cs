@@ -73,6 +73,15 @@ namespace ShopASP.Models
             public Cake Cake { get; set; }
             public int Order { get; set; }
 
+            public OrderLine()
+            {
+                OrderLineId = 0;
+                Quantity = 0;
+                Cake = new Cake();
+                Order = 0;
+            }
+
+
             public OrderLine(int quantity, Cake cake, int orderID)
             {
                 OrderLineId = 0;
