@@ -16,7 +16,7 @@
         <div id="header">
             <CS:CartSummary runat="server" />
             <CS:LoginUser runat="server" />
-            <div class="title">CakeStore - интернет магазин кондитерских товаров</div>
+            <div class="title"><img src="/Content/baker.svg" alt="Logo" id="logo_header" style="float: left; width: 70px; height: 70px; margin-right: 1.5%;"/>CakeStore - интернет магазин кондитерских товаров</div>
         </div>
         <div id="categories">
                 <CS:CategoryLinks runat="server" />

@@ -8,6 +8,7 @@
                 SelectMethod="GetCakes" runat="server">
                 <ItemTemplate>
                     <div class="item">
+                        <img src="/Content/cake-slice.svg" alt="this_cake" style="float: left; width: 75px; height: 75px; margin-right: 1.5%;"/>
                         <h3><%# Item.Name %></h3>
                         <%# Item.Description %>
                         <h4><%# Item.Price.ToString("c") %></h4>

@@ -41,24 +41,32 @@ namespace ShopASP.Pages
             }
             if (IsPostBack)
             {
-                if (Name.Value.Trim().ToString() != "" && Password.Value.Trim().ToString() != "")
+                if (Name.Value.Trim().ToString() != "" && Password.Value.Trim().ToString() != "" && Phone.Value.Trim().ToString() != "" && Mail.Value.Trim().ToString() != "")
                 {
                     if (Password.Value.ToString().Length >= 8)
                     {
-                        Models.User.UserList line = listOfUsers
-                            .Where(us => us.User_Name == Name.Value.ToString())
+                        User.UserList line = listOfUsers
+                            .Where(us => us.User_Name == Name.Value.ToString() || us.User_EMail == Mail.Value.Trim().ToString())
                             .FirstOrDefault();
                         if (line == null)
                         {
-                            //repos.RegisterUser(Name.Value.ToString(), Password.Value.ToString());
+                            repos.RegisterUser(Name.Value.ToString(), Password.Value.ToString(), Phone.Value.ToString(), Mail.Value.ToString());
                             ifRegister.Visible = false;
                             Welcome.Visible = true;
                             LoginForm.Visible = false;
-                            //Response.Redirect("login");
+                            ClientScript.RegisterStartupScript(this.GetType(), "myscript", "alert('Поздравляем! Вы зарегестрированы!');", true);
+                            Response.Redirect("login");
                         }
                         else
                         {
-                            ClientScript.RegisterStartupScript(this.GetType(), "myscript", "alert('Такой логин уже существует!');", true);
+                            if (line.User_EMail == Mail.Value.Trim().ToString())
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "myscript", "alert('Пользователь с такой почтой уже существует!');", true);
+                            }
+                            else
+                            {
+                                ClientScript.RegisterStartupScript(this.GetType(), "myscript", "alert('Такой логин уже существует!');", true);
+                            }
                         }
                     }
                     else

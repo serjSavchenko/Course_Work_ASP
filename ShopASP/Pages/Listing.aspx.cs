@@ -36,6 +36,7 @@ namespace ShopASP.Pages
         }
 
 
+
         private int GetPageFromRequest()
         {
             int page;

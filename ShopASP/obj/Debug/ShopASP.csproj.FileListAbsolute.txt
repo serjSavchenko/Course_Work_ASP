@@ -125,3 +125,5 @@ D:\repos\ShopASP\obj\Debug\ShopASP.csproj.CoreCompileInputs.cache
 D:\repos\ShopASP\obj\Debug\ShopASP.csproj.CopyComplete
 D:\repos\ShopASP\obj\Debug\ShopASP.dll
 D:\repos\ShopASP\obj\Debug\ShopASP.pdb
+D:\repos\ShopASP\obj\Debug\ShopASP.csprojAssemblyReference.cache
+D:\repos\ShopASP\bin\Microsoft.VisualStudio.DebuggerVisualizers.dll

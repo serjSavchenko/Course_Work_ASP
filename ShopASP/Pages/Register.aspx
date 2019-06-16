@@ -21,6 +21,14 @@
                 <label for="Password">Пароль:</label>
                 <input type="password" id="Password" data-val="true" data-val-required="Введите пароль!" name="Password" runat="server" />
             </div>
+            <div>
+                <label for="Phone">Телефон:</label>
+                <input type="tel" id="Phone" data-val="true" data-val-required="Введите телефон!" name="Phone" runat="server" />
+            </div>
+            <div>
+                <label for="Mail">Электронная почта:</label>
+                <input type="email" id="Mail" data-val="true" data-val-required="Введите электронную почту!" name="Mail" runat="server" />
+            </div>
             <br />
             <button type="submit">Зарегистрироваться</button>
             <br />

@@ -49,6 +49,24 @@ namespace ShopASP.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
         
         /// <summary>
+        /// Phone элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Phone;
+        
+        /// <summary>
+        /// Mail элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Mail;
+        
+        /// <summary>
         /// Welcome элемент управления.
         /// </summary>
         /// <remarks>
