@@ -29,9 +29,12 @@ CREATE TABLE `users` (
   `User_Name` varchar(45) NOT NULL,
   `User_Password` varchar(45) NOT NULL,
   `Permission` varchar(45) NOT NULL,
+  `User_Phone` varchar(45) DEFAULT ' ',
+  `User_EMail` varchar(45) DEFAULT ' ',
   PRIMARY KEY (`User_ID`),
-  UNIQUE KEY `User_Name_UNIQUE` (`User_Name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `User_Name_UNIQUE` (`User_Name`),
+  UNIQUE KEY `User_EMail_UNIQUE` (`User_EMail`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +43,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'frederick','1234567','User'),(2,'Admin','Admin','Admin'),(3,'User','55555','User'),(4,'Nick','7532159','User'),(5,'Nickolas','88888888','User'),(6,'Oleg','12345','User'),(7,'Hulu','12345678','User');
+INSERT INTO `users` VALUES (1,'frederick','1234567','User',' ','dddD@gmail.com'),(2,'Admin','Admin','Admin','','dnd@mail.com'),(3,'User','55555','User',' ','home@yahoo.com'),(4,'Nick','7532159','User',' ','nider@downmail.com'),(5,'Nickolas','88888888','User',' ','TNT@gmail.com'),(6,'Oleg','12345','User',' ','Nobody@mail.ru'),(7,'Hulu','12345678','User',' ','BtoB@gmail.com'),(8,'Kaban','75834352','User',' ','Hope@mail.ru'),(9,'Joint','863512458','User','0973223632','asshole@gmail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-19 17:45:46
+-- Dump completed on 2019-06-16 15:16:03

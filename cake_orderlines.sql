@@ -34,7 +34,7 @@ CREATE TABLE `orderlines` (
   KEY `FK_OrderLines_Order_idx` (`Order_OrderId`),
   CONSTRAINT `FK_OrderLines_Cake` FOREIGN KEY (`Cake_CakeId`) REFERENCES `cakes` (`CakeId`),
   CONSTRAINT `FK_OrderLines_Order` FOREIGN KEY (`Order_OrderId`) REFERENCES `orders` (`OrderID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `orderlines` (
 
 LOCK TABLES `orderlines` WRITE;
 /*!40000 ALTER TABLE `orderlines` DISABLE KEYS */;
-INSERT INTO `orderlines` VALUES (1,1,1,1);
+INSERT INTO `orderlines` VALUES (1,2,1,1),(2,1,2,1),(3,1,3,2),(4,1,4,2);
 /*!40000 ALTER TABLE `orderlines` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-15 12:08:39
+-- Dump completed on 2019-06-16 15:16:02
